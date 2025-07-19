@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  digikala-worker:
+    build: .
+    networks:
+      - blackeveryday_network
+    environment:
+      - REDIS_HOST=redis-server
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+
+networks:
+  blackeveryday_network:
+    external: true
